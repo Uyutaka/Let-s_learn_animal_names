@@ -1,0 +1,26 @@
+{% extends "template.html" %}
+{% block content %}
+{% set path= "img/" + answerPic %}
+
+<center>
+<body background="{{url_for('static', filename=path)}}" style="
+background-position:center top;
+background-repeat:no-repeat;
+-moz-background-size:cover;
+background-size:cover;">
+
+<p style="font-family: times;color:white;font-size:50px; text-shadow: 0px 0px 6px gray">
+Q{{numQuestion}} The answer is correct.</p>
+<p style="font-family: times;color:white; font-size:50px; text-shadow: 0px 0px 12px gray">
+ YOU GET</p>
+
+
+
+<p style="font-family: times;color:white;font-size:100px"text-shadow: 0px 0px 12px gray>
+	{{numCorrect}}
+</p>
+
+<a href="/question" class="button button-caution button-pill button-jumbo">Next</a>
+</body>
+</center>
+{% endblock %}

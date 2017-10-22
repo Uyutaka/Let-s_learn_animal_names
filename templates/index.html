@@ -1,0 +1,41 @@
+
+   
+
+{% extends "template.html" %}
+{% block content %}
+<body>
+<h2>DEBUG</h2>
+<h2>{{test1}}</h2>
+<h2>{{test2}}</h2>
+
+<h1>Q{{numQuestion}}</h1>
+<h2>answer</h2>
+<br>
+<h1>{{select[0][0]}}</h1>
+
+<form method="post" name="form1" action="/result">
+    <input type="hidden" name="select" value="{{select[1][0]}}">
+    <a href="javascript:form1.submit()" class="button button-primary button-large button-rounded">{{select[1][0]}}</a>
+</form>
+<br>
+
+<form method="post" name="form2" action="/result">
+    <input type="hidden" name="select" value="{{select[1][1]}}">
+    <a href="javascript:form2.submit()" class="button button-primary button-large button-rounded">{{select[1][1]}}</a>
+</form>
+<br>
+<form method="post" name="form3" action="/result">
+    <input type="hidden" name="select" value="{{select[1][2]}}">
+    <a href="javascript:form3.submit()" class="button button-primary button-large button-rounded">{{select[1][2]}}</a>
+</form>
+<br>
+<form method="post" name="form4" action="/result">
+    <input type="hidden" name="select" value="{{select[1][3]}}">
+    <a href="javascript:form4.submit()" class="button button-primary button-large button-rounded">{{select[1][3]}}</a>
+</form>
+ <br>
+
+
+</body>
+ {% endblock %} 
+      

@@ -1,0 +1,53 @@
+
+{% extends "template.html" %}
+{% block content %}
+
+
+{% set path= "img/" + answerPic %}
+<center>
+<body background="{{url_for('static', filename=path)}}" style="
+background-position:center top;
+background-repeat:no-repeat;
+-moz-background-size:cover;
+background-size:cover;">
+
+<br>
+ <p style="font-family: times;color:white;font-size:100px">
+Q{{numQuestion}} What is this animal?</p>
+
+<center>     
+<form method="post" name="form1" action="/result">
+    <input type="hidden" name="select" value="{{select[1][0]}}">
+    <a href="javascript:form1.submit()" class="button button-primary button-large button-rounded">{{select[1][0]}}</a>
+</form>
+<br>
+<br>
+<form method="post" name="form2" action="/result">
+    <input type="hidden" name="select" value="{{select[1][1]}}">
+    <a href="javascript:form2.submit()" class="button button-primary button-large button-rounded">{{select[1][1]}}</a>
+</form>
+<br>
+<br>
+
+<form method="post" name="form3" action="/result">
+    <input type="hidden" name="select" value="{{select[1][2]}}">
+    <a href="javascript:form3.submit()" class="button button-primary button-large button-rounded">{{select[1][2]}}</a>
+</form>
+<br>
+<br>
+<form method="post" name="form4" action="/result">
+    <input type="hidden" name="select" value="{{select[1][3]}}">
+    <a href="javascript:form4.submit()" class="button button-primary button-large button-rounded">{{select[1][3]}}</a>
+</form>
+</body>
+</center>
+
+{% endblock %} 
+
+
+
+
+
+
+
+
