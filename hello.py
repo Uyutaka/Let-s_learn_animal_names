@@ -1,11 +1,12 @@
+# 10/21/2017
+# Yutaka
+
 from flask import Flask, render_template, make_response, request, session
 from datetime import datetime
 import random as rand
 import glob
 
-
 app = Flask(__name__)
-
 
 @app.before_request
 def before_request():
@@ -28,6 +29,7 @@ def setcookie():
 		numQuestion += 1
 		userAns = request.form['select']
 		result = ""
+
 		if(numQuestion < 5):
 			if userAns == ANSWER:
 				numCorrect += 1
@@ -49,11 +51,9 @@ def setcookie():
 			else:
 				result = "Incorrect!"
 				resp = make_response(render_template('final_incorrect.html', userAns=userAns, result=result, numQuestion=numQuestion, numCorrect=numCorrect*20, correctAns=ANSWER, answerPic=ANSWER_PIC))
-
 			initializeStatus()
 
 	return resp
-
 
 def getQuestionInfo():
 	infoPath = glob.glob('static/img/*')
@@ -93,13 +93,6 @@ def readStatus():
 	f.close()
 	return fileInfo
 
-# def removeUsedQuestion():
-# 	for i in range(len(QUESTION_INFO)):
-# 		if ANSWER in QUESTION_INFO[i]:
-# 			del QUESTION_INFO[i][0]
-# 			del QUESTION_INFO[i][1]
-
-
 def writeStatus(ANSWER, numCorrect, numQuestion):
 	currentStatus = readStatus()
 	currentStatus[0] = numQuestion
@@ -110,7 +103,6 @@ def writeStatus(ANSWER, numCorrect, numQuestion):
 	for line in currentStatus:
 		f.write(str(line) + '\n')
 	f.close()
-	#removeUsedQuestion()
 	ANSWER = ''
 	ANSWER_PIC = ''
 
@@ -122,9 +114,6 @@ def initializeStatus():
 	f.close()
 	QUESTION_INFO = getQuestionInfo()
 
-
-
-
-## magic
+## Flask
 if __name__ == "__main__":
     app.run(debug=True)

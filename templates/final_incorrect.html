@@ -1,36 +1,25 @@
+<!-- 10/21/2017 -->
+<!-- Danqi, Yutaka  -->
 {% extends "template.html" %}
-{% block content %}
+{% block content %} 
 {% set path= "img/" + answerPic %}
-
-
 <center>
-
-<body background="{{url_for('static', filename=path)}}" style="
-background-position:center top;
-background-repeat:no-repeat;
--moz-background-size:cover;
-background-size:cover;">
-
-
-<p style="font-family: times; color:white; font-size:38.1924px; text-shadow: 0px 0px 6px gray">
-  Oops! Q{{numQuestion}} answer is incorrect.</p>
-
-<p style="font-family: times; color:white; font-size:38.1924px; text-shadow: 0px 0px 6px gray">
-  The correct answer is {{correctAns}}.</p>
-
-
-<p style="font-family: times; color:white; font-size: 75px; text-shadow: 0px 0px 12px gray"> 
- The total score is</p>
-
-
-
-<p style="font-family: times; color:white; font-size:75px; text-shadow: 0px 0px 12px gray">
-{{numCorrect}}
-</p>
-
-<a href="/question" class="button button-caution button-pill button-jumbo">Try again</a>
-
-</body>
+    <body background="{{url_for('static', filename=path)}}" style="background-position:center top; background-repeat:no-repeat; -moz-background-size:cover; background-size:cover;">
+        <p style="font-family: times; color:white; font-size:38.1924px; text-shadow: 0px 0px 6px gray">
+            Oops! Q{{numQuestion}} answer is incorrect.
+        </p>
+        <p style="font-family: times; color:white; font-size:38.1924px; text-shadow: 0px 0px 6px gray">
+            The correct answer is {{correctAns}}.
+        </p>
+        <p style="font-family: times; color:white; font-size: 75px; text-shadow: 0px 0px 12px gray">
+            The total score is
+        </p>
+        <p style="font-family: times; color:white; font-size:75px; text-shadow: 0px 0px 12px gray">
+            {{numCorrect}}
+        </p>
+        <a href="/question" class="button button-caution button-pill button-jumbo">
+        	Try again
+    	</a>
+    </body>
 </center>
-
 {% endblock %}
